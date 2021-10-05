@@ -13,3 +13,4 @@ RUN ls /opt/ml/code/imagenet_checkpoints/
 
 # Defines train.py as script entrypoint
 ENV SAGEMAKER_PROGRAM train_image_classifier.py
+#ENV SAGEMAKER_PROGRAM test.py
