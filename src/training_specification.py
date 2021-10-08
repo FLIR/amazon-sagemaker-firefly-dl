@@ -3,7 +3,7 @@ import json
 
 class TrainingSpecification:
 
-    template = """    
+    template = """
 {
     "TrainingSpecification": {
     "TrainingImage": "IMAGE_REPLACE_ME",
@@ -48,7 +48,7 @@ class TrainingSpecification:
             },
             "IsTunable": false,
             "IsRequired": false,
-            "DefaultValue": "100"
+            "DefaultValue": "50000"
         },
         {
             "Name": "random_image_flip",
@@ -132,7 +132,7 @@ class TrainingSpecification:
             },
             "IsTunable": false,
             "IsRequired": false,
-            "DefaultValue": "0.01"
+            "DefaultValue": "0.001"
         },
         {
             "Name": "model_name",
@@ -272,13 +272,13 @@ class TrainingSpecification:
             "ml.p3.8xlarge",
             "ml.p3.16xlarge",
         ]
-        gpu_list_1 = [
-            "ml.p2.xlarge",
-        ]
+        # gpu_list_1 = [
+        #     "ml.p2.xlarge",
+        # ]
 
         list_to_return = cpu_list
 
         if supports_gpu:
-            list_to_return = gpu_list_1
+            list_to_return = gpu_list + cpu_list
 
         return json.dumps(list_to_return)
